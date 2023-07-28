@@ -28,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 //   },
 // });
 import upload from "../utils/upload.mjs";
+// import authenticateJWT from "../middleware/middleware.mjs";
 
 const router = Express.Router();
 router.get("/allBlog", getAllBlogs);
@@ -39,7 +40,8 @@ router.post("/likes/:id", likes);
 router.get("/filter", filterByCategory);
 router.get("/search", searchByTitle);
 // router.post("/upload", upload.single("image"), uploadImage);
-router.post("/make", upload.single("image"), makeBlog);
+// router.post("/make", makeBlog);
+router.post("/make", makeBlog);
 router.get("/file/:filename", getImage);
 router.get("/seemore/:id", seemore);
 

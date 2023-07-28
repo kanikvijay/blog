@@ -35,6 +35,7 @@ const registerUser = AsyncHandler(async (req, res) => {
 });
 
 const loginUser = AsyncHandler(async (req, res) => {
+ 
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400);
@@ -42,7 +43,7 @@ const loginUser = AsyncHandler(async (req, res) => {
   }
   const user = await User.findOne({ email });
   // compare password with hashed password
-
+  console.log("i am in login")
   if (user && (await bcrypt.compare(password, user.password))) {
     const accessToken = jwt.sign(
       {
@@ -55,7 +56,9 @@ const loginUser = AsyncHandler(async (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "15m" }
     );
-    res.status(200).json({ user });
+    console.log("i am in login")
+    res.status(200).json({ message:"yessss"});
+    // console.log(user);
     // return user;
   } else {
     res.status(401);
