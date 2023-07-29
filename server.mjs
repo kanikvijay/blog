@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import multer from "multer";
+
 import mongoose from "mongoose";
 import connectDb from "./connectionDb/db.mjs";
 import userRoutes from "./routes/userRoutes.mjs";
