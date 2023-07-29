@@ -5,15 +5,14 @@ import multer from "multer";
 import mongoose from "mongoose";
 import connectDb from "./connectionDb/db.mjs";
 import userRoutes from "./routes/userRoutes.mjs";
-import blogRoutes from "../Blog-website/routes/blogRoutes.mjs";
+import blogRoutes from "./routes/blogRoutes.mjs";
 const app = express();
 import bodyParser from "body-parser";
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.json());
 dotenv.config();
-import Blog from "../Blog-website/models/blogModel.mjs";
-import User from "../Blog-website/models/userModel.mjs";
+
 
 // mongo db connection
 connectDb();
